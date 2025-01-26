@@ -34,7 +34,7 @@ registerMwa({
 
 const CLUSTER = WalletAdapterNetwork.Mainnet;
 const CONNECTION_CONFIG: ConnectionConfig = { commitment: 'processed' };
-const ENDPOINT = /*#__PURE__*/ clusterApiUrl(CLUSTER);
+const ENDPOINT = /*#__PURE__*/ 'https://mainnet.helius-rpc.com/?api-key=fb1aa938-422b-4f2d-aa64-80fe84a84138';
 
 const theme = /*#__PURE__*/ createTheme();
 
