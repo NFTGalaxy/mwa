@@ -64,6 +64,7 @@ export default function RecordMessageButton({ children, message }: Props) {
             }
 
             const signature = await sendTransaction(memoProgramTransaction, connection, { minContextSlot: context.slot});
+            enqueueSnackbar('Funding successful: ' + signature, { variant: 'success' });
             return [signature, await connection.confirmTransaction({ blockhash, lastValidBlockHeight, signature })];
         },
         [connection, publicKey, sendTransaction],
