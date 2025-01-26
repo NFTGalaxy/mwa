@@ -27,12 +27,12 @@ registerMwa({
         uri: getUriForAppIdentity(),
     },
     authorizationResultCache: createDefaultAuthorizationResultCache(),
-    chain: 'solana:testnet',
+    chain: 'solana:mainnet',
     remoteHostAuthority: '4.tcp.us-cal-1.ngrok.io:15762',
     onWalletNotFound: createDefaultWalletNotFoundHandler(),
 })
 
-const CLUSTER = WalletAdapterNetwork.Devnet;
+const CLUSTER = WalletAdapterNetwork.Mainnet;
 const CONNECTION_CONFIG: ConnectionConfig = { commitment: 'processed' };
 const ENDPOINT = /*#__PURE__*/ clusterApiUrl(CLUSTER);
 
