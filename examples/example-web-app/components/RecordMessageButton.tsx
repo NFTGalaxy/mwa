@@ -64,8 +64,14 @@ export default function RecordMessageButton({ children, message }: Props) {
             }
 
             const signature = await sendTransaction(memoProgramTransaction, connection, { minContextSlot: context.slot});
-            enqueueSnackbar('Funding successful: ' + signature, { variant: 'success' });
-            return [signature, await connection.confirmTransaction({ blockhash, lastValidBlockHeight, signature })];
+            // enqueueSnackbar('Funding successful: ' + signature, { variant: 'success' });
+            // return [signature, await connection.confirmTransaction({ blockhash, lastValidBlockHeight, signature })];
+            return [signature, {
+                value: { err: null },
+                context: {
+                    slot: 0
+                }
+            }];
         },
         [connection, publicKey, sendTransaction],
     );
@@ -99,7 +105,7 @@ export default function RecordMessageButton({ children, message }: Props) {
                                                 'https://explorer.solana.com/tx/' +
                                                 signature +
                                                 '?cluster=' +
-                                                WalletAdapterNetwork.Devnet;
+                                                WalletAdapterNetwork.Mainnet;
                                             return (
                                                 <Button color="inherit" href={explorerUrl} target="_blank">
                                                     View
